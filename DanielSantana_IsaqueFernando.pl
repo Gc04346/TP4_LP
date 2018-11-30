@@ -24,3 +24,19 @@ media(X,M) :- tamLista(X,N), somaElementos(X,Y), M is Y/N.
 %% Quarto exercício. Inserir elemento no final da lista.
 inserirfim(Y, [], [Y]).
 inserirfim(Y,[X|L], M) :- inserirfim(Y,L,W), M = [X|W].
+
+%% Quinto exercício. Obter último elemento da lista.
+ultimo([X|L],M) :- L = [], M is X.
+ultimo([_|L],M) :- L \= [], ultimo(L,M).
+
+%% Sexto exercício. Comparar se dois elementos são adjacentes.
+%% Função para retirar elemento.
+retiraprimeiro([X|L],X,L).
+
+adjacente(X,Y,L) :- retiraprimeiro(L,A,L1), X == A, retiraprimeiro(L1,B,_), Y == B.
+adjacente(X,Y,L) :- retiraprimeiro(L,A,L1), X \= A, adjacente(X,Y,L1).
+
+%% Sétimo exercício. Gerar uma lista com elementos em uma faixa L. Inclusive
+gerar(Y,Y,[Y]).
+gerar(X,Y,L) :- X > Y, L is 0.
+gerar(X,Y,L) :- gerar(Z,Y,M), Z is X+1, L = [X|M].
