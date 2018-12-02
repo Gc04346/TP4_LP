@@ -39,4 +39,4 @@ adjacente(X,Y,L) :- retiraprimeiro(L,A,L1), X \= A, adjacente(X,Y,L1).
 %% Sétimo exercício. Gerar uma lista com elementos em uma faixa L. Inclusive
 gerar(Y,Y,[Y]).
 gerar(X,Y,L) :- X > Y, L is 0.
-gerar(X,Y,L) :- gerar(Z,Y,M), Z is X+1, L = [X|M].
+gerar(X,Y,L) :- L = [X|M], Z is X+1, gerar(Z,Y,M).
