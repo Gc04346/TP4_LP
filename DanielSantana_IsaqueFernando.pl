@@ -49,3 +49,7 @@ concatenar([X|L1], L2, [X|L3]) :- concatenar(L1, L2, L3).
 reverter([], []).
 reverter([X|L], M) :- L = [], concatenar([], [X], M).
 reverter([X|L], M) :- reverter(L, N), concatenar(N,[X],M).
+
+%% Nono exercício. Incrementar em uma unidade cada elemento de uma lista de inteiros.
+incrementar([], []).
+incrementar([X|L], M) :- incrementar(L, N), Y is X+1, M = [Y|N].
