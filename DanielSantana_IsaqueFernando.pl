@@ -53,3 +53,12 @@ reverter([X|L], M) :- reverter(L, N), concatenar(N,[X],M).
 %% Nono exercício. Incrementar em uma unidade cada elemento de uma lista de inteiros.
 incrementar([], []).
 incrementar([X|L], M) :- incrementar(L, N), Y is X+1, M = [Y|N].
+
+%% Décimo exercício. Linearizar uma lista de inteiros. Dica: use o predicado concatenar.
+%% Função para concatenar uma lista.
+concatenar([], L, L).
+concatenar([X|L1], L2, [X|L3]) :- concatenar(L1, L2, L3).
+
+linearizar([], []).
+linearizar([X|L], M) :- L = [], concatenar(X,L,M).
+linearizar([X|L], M) :- L \= [], linearizar(L, N), concatenar(X,N,M).
