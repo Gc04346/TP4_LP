@@ -40,3 +40,12 @@ adjacente(X,Y,L) :- retiraprimeiro(L,A,L1), X \= A, adjacente(X,Y,L1).
 gerar(Y,Y,[Y]).
 gerar(X,Y,L) :- X > Y, L is 0.
 gerar(X,Y,L) :- L = [X|M], Z is X+1, gerar(Z,Y,M).
+
+%% Oitavo exercício. Reverter uma lista. Dica: use o predicado concatenar.
+%% Função para concatenar duas listas.
+concatenar([], L, L).
+concatenar([X|L1], L2, [X|L3]) :- concatenar(L1, L2, L3).
+
+reverter([], []).
+reverter([X|L], M) :- L = [], concatenar([], [X], M).
+reverter([X|L], M) :- reverter(L, N), concatenar(N,[X],M).
