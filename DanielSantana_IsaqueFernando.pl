@@ -79,3 +79,13 @@ rotacionar([X|L], M) :- concatenar(L, [X], M).
 rotacionar(0, L, L).
 rotacionar(_, [], []).
 rotacionar(M, [X|L], N) :- concatenar(L, [X], P), Q is M-1, rotacionar(Q, P, N). 
+
+%% Décimo quinto exercício. Ordenar uma lista de inteiros.
+%% Função para retirar elementos.
+retira([], [], []).
+retira([X|L], X, L).
+
+ordenar([], []).
+ordenar(L, M) :- retira(L, A, B), retira(B, C, D), C = [], M = [A].
+ordenar(L, M) :- retira(L, A, B), retira(B, C, D), D = [], A > C, M = [C|A].
+ordenar(L, M) :- retira(L, A, B), retira(B, C, D), D = [], A <= C, M = [A|C].
