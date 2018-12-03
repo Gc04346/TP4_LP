@@ -74,3 +74,8 @@ remover(M, [X|L], N) :- X \= M, remover(M, L, Z), N = [X|Z].
 %% Décimo terceiro exercício. Rotacionar uma lista uma posição.
 rotacionar([], []).
 rotacionar([X|L], M) :- concatenar(L, [X], M). 
+
+%% Décimo quarto exercício. Rotacionar uma lista n posições.
+rotacionar(0, L, L).
+rotacionar(_, [], []).
+rotacionar(M, [X|L], N) :- concatenar(L, [X], P), Q is M-1, rotacionar(Q, P, N). 
