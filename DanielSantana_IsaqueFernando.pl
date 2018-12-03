@@ -70,3 +70,7 @@ anexar(L,X,M) :- concatenar(L,X,M).
 remover(_, [], []).
 remover(M, [X|L], N) :- X == M, remover(M, L, Z), N = Z.
 remover(M, [X|L], N) :- X \= M, remover(M, L, Z), N = [X|Z].
+
+%% Décimo terceiro exercício. Rotacionar uma lista uma posição.
+rotacionar([], []).
+rotacionar([X|L], M) :- concatenar(L, [X], M). 
