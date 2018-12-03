@@ -65,3 +65,8 @@ linearizar([X|L], M) :- L \= [], linearizar(L, N), concatenar(X,N,M).
 
 %% Décimo primeiro exercício. Anexar uma lista em outra.
 anexar(L,X,M) :- concatenar(L,X,M).
+
+%% Décimo segundo exercício. Remover de uma lista um elemento (todas as suas ocorrências)
+remover(_, [], []).
+remover(M, [X|L], N) :- X == M, remover(M, L, Z), N = Z.
+remover(M, [X|L], N) :- X \= M, remover(M, L, Z), N = [X|Z].
