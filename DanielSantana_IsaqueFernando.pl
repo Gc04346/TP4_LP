@@ -89,3 +89,12 @@ ordenar([], []).
 ordenar(L, M) :- retira(L, A, B), retira(B, C, D), C = [], M = [A].
 ordenar(L, M) :- retira(L, A, B), retira(B, C, D), D = [], A > C, M = [C|A].
 ordenar(L, M) :- retira(L, A, B), retira(B, C, D), D = [], A <= C, M = [A|C].
+
+%% Décimo quinto exercício. Ordenar uma lista de Elementos.
+ordena([]).
+ordena([_]).
+ordena([X,Y|L]) :- X =< Y, ordena([Y|L]). % Confere se uma lista está ordenada crescente.
+
+% Das listas permutadas ele procura a permutação que os elementos estão em ordem crescente.
+% Quando há o casamento dos padrões há o retorno da lista L que satisfaz as duas condições.
+ordenar(A,L) :- permutation(A, L), ordena(L).
