@@ -62,3 +62,6 @@ concatenar([X|L1], L2, [X|L3]) :- concatenar(L1, L2, L3).
 linearizar([], []).
 linearizar([X|L], M) :- L = [], concatenar(X,L,M).
 linearizar([X|L], M) :- L \= [], linearizar(L, N), concatenar(X,N,M).
+
+%% Décimo primeiro exercício. Anexar uma lista em outra.
+anexar(L,X,M) :- concatenar(L,X,M).
